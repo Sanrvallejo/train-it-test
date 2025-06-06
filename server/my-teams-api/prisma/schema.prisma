@@ -17,7 +17,7 @@ datasource db {
 model Teams {
   id Int @id @default(autoincrement())
   name String @unique
-  local_titles String
-  world_titles String 
+  local_titles Int
+  world_titles Int 
 }
 
