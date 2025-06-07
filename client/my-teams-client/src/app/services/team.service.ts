@@ -19,4 +19,8 @@ export class TeamService {
   createTeam(team: Team): Observable<Team> {
     return this.http.post<Team>(`${this.BASE_URL}/teams`, team);
   }
+
+  deleteTeam(id: number):  Observable<Team> {
+    return this.http.delete<Team>(`${this.BASE_URL}/${id}`);
+  }
 }
