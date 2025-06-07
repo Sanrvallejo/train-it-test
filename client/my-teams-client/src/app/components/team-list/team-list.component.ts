@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../../model/team.model';
 import { TeamService } from '../../services/team.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-team-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './team-list.component.html',
   styleUrl: './team-list.component.css'
 })
@@ -21,7 +22,9 @@ export class TeamListComponent implements OnInit{
   getTeams() {
     this.teamService.getTeams()
       .subscribe(
-        res => console.log(res),
+        res => {
+          this.teams = res;
+        },
         err => console.log(err)
       )
   }
