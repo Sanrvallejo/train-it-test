@@ -29,4 +29,15 @@ export class TeamListComponent implements OnInit{
       )
   }
 
+  deleteTeam(id: any) {
+    this.teamService.deleteTeam(id)
+      .subscribe(
+        res => {
+          console.log(res)
+          window.location.href = '/';
+        },
+        err => console.log(err)        
+      )
+  }
+
 }
