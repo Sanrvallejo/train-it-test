@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  imports: [RouterLink, RouterLinkActive],
   template: `
     <nav class="navbar bg-primary">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-bg-primary">My favorite Teams</span>
+        <ul class="navbar-nav">
+          <li class="navbar-item">
+            <a class="navbar-brand text-bg-primary" [routerLink]="['/']" [routerLinkActive]="['active']">My football teams</a>
+          </li>
+        </ul>
       </div>
     </nav>
-  `
+  `,
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}
