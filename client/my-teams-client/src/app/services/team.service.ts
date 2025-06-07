@@ -16,11 +16,19 @@ export class TeamService {
     return this.http.get<Team[]>(`${this.BASE_URL}/teams`);
   }
 
+  getTeamById(id: number): Observable<Team> {
+    return this.http.get<Team>(`${this.BASE_URL}/teams/${id}`);
+  }
+
   createTeam(team: Team): Observable<Team> {
     return this.http.post<Team>(`${this.BASE_URL}/teams`, team);
   }
 
   deleteTeam(id: number):  Observable<Team> {
     return this.http.delete<Team>(`${this.BASE_URL}/teams/${id}`);
+  }
+
+  editTeam(id: any, team: Team): Observable<Team> {
+    return this.http.put<Team>(`${this.BASE_URL}/teams/${id}`, team);
   }
 }

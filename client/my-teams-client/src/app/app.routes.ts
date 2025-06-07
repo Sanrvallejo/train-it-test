@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: TeamComponent
     },
     {
-        path: 'edit',
+        path: 'edit/:id',
         component: EditTeamComponent
     }
 ];

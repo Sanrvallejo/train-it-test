@@ -1,0 +1,21 @@
+<div class="container sticky-sm-top">
+    <h3>Edit team</h3>
+    <form (submit)="editTeam()">
+        <div class="mb-3 col-10">
+          <label for="name" class="form-label">Name team</label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="team.name" placeholder="My team">
+        </div>
+        <div class="mb-3 col-10">
+            <label for="local_titles" class="form-label">Local titles</label>
+            <input type="number" class="form-control" name="local_titles" [(ngModel)]="team.local_titles" placeholder="10">
+        </div>
+        <div class="mb-3 col-10">
+            <label for="world_titles" class="form-label">International titles</label>
+            <input type="number" class="form-control" name="world_titles" [(ngModel)]="team.world_titles" placeholder="10">
+        </div>
+        
+        <button type="submit" class="btn btn-primary col-2 mt-2">Save</button>
+    </form>
+</div>
+
+
