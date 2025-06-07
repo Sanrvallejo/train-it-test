@@ -22,7 +22,11 @@ export class TeamController {
 
   @Get('/:id')
   async getById(@Param('id') id: string) {
-    return this.teamService.getTeamById(Number(id));
+    try {
+      return await this.teamService.getTeamById(Number(id));
+    } catch (error) {
+      throw new NotFoundException(`Team with id: ${id} not found`);
+    }
   }
 
   @Post()
@@ -32,11 +36,19 @@ export class TeamController {
 
   @Put('/:id')
   async update(@Param('id') id: string, @Body() data: Teams) {
-    return this.teamService.updateTeam(Number(id), data);
+    try {
+      return await this.teamService.updateTeam(Number(id), data);
+    } catch (error) {
+      throw new NotFoundException(`Team with id: ${id} not found`);
+    }
   }
 
   @Delete('/:id')
   async delete(@Param('id') id: string) {
-    return this.teamService.deleteTeam(Number(id));
+    try {
+      return await this.teamService.deleteTeam(Number(id));
+    } catch (error) {
+      throw new NotFoundException(`Team with id: ${id} not found`);
+    }
   }
 }
